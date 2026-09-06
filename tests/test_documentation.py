@@ -15,12 +15,12 @@ class DocumentationTests(unittest.TestCase):
             "codex",
             "claude code",
             "./research/",
-            "audience",
-            "resume",
+            "аудитори",
+            "продолж",
             "html",
-            "factcheck",
-            "web search",
-            "privacy",
+            "фактчек",
+            "веб-поиск",
+            "приватност",
             "иммунитет к изменениям",
         ):
             self.assertIn(phrase, text)
@@ -28,4 +28,3 @@ class DocumentationTests(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
-

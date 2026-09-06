@@ -1,46 +1,56 @@
 # Research Dossier
 
-Research Dossier turns a topic, idea, transcript, notes, URL, or call recording into a local research dossier for a future video. It is research fuel, not a finished script: the report combines evidence, concepts, cases, quotes, media references, metaphors, and ten bold creative directions while marking what is proven, inferred, stretched, or invented.
+Research Dossier превращает тему, идею, транскрипт, заметки, URL или запись созвона в локальное исследовательское досье для будущего видео. Это топливо для ресерча, а не готовый сценарий: отчёт объединяет доказательства, концепции, кейсы, цитаты, медиарекомендации, метафоры и десять смелых творческих направлений, отдельно помечая доказанное, интерпретации, натяжки и вымысел.
 
-The default audience profile is a Russian-speaking business and self-development YouTube audience inspired by the editorial profile of Mikhail Dashkiev. It is editable and stored locally. The project is designed around the ChatGPT/Codex plugin and has a Claude Code adapter plus generic compatibility notes for Antigravity, Google, OpenCode, and similar skill-based environments.
+Профиль аудитории по умолчанию рассчитан на русскоязычную аудиторию YouTube, интересующуюся бизнесом и саморазвитием, с ориентацией на редакционный профиль аудитории Михаила Дашкиева. Профиль можно изменить, он хранится локально. Проект создан прежде всего как плагин для ChatGPT/Codex; также в репозитории есть адаптер для Claude Code и заметки о совместимости с Antigravity, Google, OpenCode и другими средами, поддерживающими формат навыков.
 
-## What it does
+## Что умеет плагин
 
-1. Creates or resumes a local project under `./research/<slug>/`.
-2. Collects a short brief and builds a question map.
-3. Pauses for user confirmation before deep research.
-4. Searches the web in any relevant language and writes the report in Russian.
-5. Separates evidence, interpretation, creative hypotheses, and short illustrative fiction.
-6. Saves checkpoints so a long research can resume after context loss.
-7. Writes `output/research.md` and can generate `output/research.html` on request.
-8. Offers optional factcheck, critic, editorial review, and concept-refinement skills.
+1. Создаёт или продолжает локальный проект в `./research/<slug>/`.
+2. Собирает краткий бриф и строит карту исследовательских вопросов.
+3. Просит подтвердить карту перед глубоким исследованием.
+4. Ищет информацию в интернете на подходящих языках и пишет итоговый отчёт по-русски.
+5. Разделяет доказательства, интерпретации, творческие гипотезы и короткие вымышленные иллюстрации.
+6. Сохраняет промежуточные этапы, чтобы продолжить работу после потери контекста.
+7. Создаёт `output/research.md` и по запросу генерирует `output/research.html`.
+8. Предлагает дополнительные навыки для фактчека, критики, редакторского ревью и доработки концепций.
 
-## Codex / ChatGPT installation
+## Установка в Codex / ChatGPT
 
-From GitHub, run:
+Установка из GitHub:
 
 ```bash
 codex plugin marketplace add abbnv/research-dossier --ref main
 codex plugin add research-dossier@research-skill
 ```
 
-For a local checkout, run `codex plugin marketplace add .` from the repository root instead. The plugin manifest is at `plugins/research-dossier/.codex-plugin/plugin.json`, and the bundled skills are under `plugins/research-dossier/skills/`.
+Для локальной копии репозитория выполните `codex plugin marketplace add .` из корневой папки. Манифест плагина находится в `plugins/research-dossier/.codex-plugin/plugin.json`, а навыки — в `plugins/research-dossier/skills/`.
 
-After installation, start a new Codex task and ask: `Сделай ресерч по теме: ...`.
+После установки создайте новую задачу Codex и напишите:
 
-## Claude Code installation
+```text
+Сделай ресерч по теме: ...
+```
 
-Copy the skill directories from `plugins/research-dossier/skills/` into the Claude Code skills directory used by your project or user environment. The detailed adapter is in [adapters/claude-code/README.md](adapters/claude-code/README.md). The main skill is `skills/research/`; companion skills can be installed alongside it.
+Или вызовите навык явно:
 
-## Other agents
+```text
+$research Сделай ресерч по теме: ...
+```
 
-Use the canonical skill folders and follow [adapters/generic/COMPATIBILITY.md](adapters/generic/COMPATIBILITY.md). If the host has no web search, ask the user for sources or enable external search before starting a full research pass. Do not pretend model memory is verified research.
+## Установка в Claude Code
 
-## First run and audience
+Скопируйте папки навыков из `plugins/research-dossier/skills/` в каталог skills, который используется вашим проектом или пользовательским окружением Claude Code. Подробная инструкция находится в [adapters/claude-code/README.md](adapters/claude-code/README.md). Основной навык — `skills/research/`; дополнительные навыки можно установить рядом с ним.
 
-On first run, accept or edit the default audience profile. It is one global local profile, not a universal truth. The user is responsible for the confidentiality and privacy of transcripts and other input material; the skill does not promise automatic anonymization.
+## Другие агенты
 
-## Local project layout
+Используйте канонические папки навыков и следуйте инструкции [adapters/generic/COMPATIBILITY.md](adapters/generic/COMPATIBILITY.md). Если среда не поддерживает веб-поиск, попросите пользователя предоставить источники или включите внешний поиск до начала полного ресерча. Не выдавайте знания модели за проверенное исследование.
+
+## Первый запуск и профиль аудитории
+
+При первом запуске примите или отредактируйте профиль аудитории по умолчанию. Это единый локальный профиль, а не универсальная истина. Пользователь отвечает за конфиденциальность и приватность транскриптов и других исходных материалов; навык не обещает автоматическую анонимизацию.
+
+## Структура локального проекта
 
 ```text
 ./research/<project-slug>/
@@ -51,11 +61,11 @@ On first run, accept or edit the default audience profile. It is one global loca
 └── reviews/{factcheck,critic,editorial-review}.md
 ```
 
-Use `plugins/research-dossier/scripts/new_research_project.py` to scaffold a project and `project_state.py` to inspect resume state. Existing input and output are never overwritten by a second scaffold run.
+Для создания проекта используйте `plugins/research-dossier/scripts/new_research_project.py`, а для проверки состояния продолжения — `project_state.py`. Повторный запуск скрипта создания проекта не перезаписывает существующие входные материалы и итоговый файл.
 
-## HTML and copy buttons
+## HTML-версия и кнопки «Скопировать»
 
-After Markdown is ready, ask for HTML or run:
+Когда Markdown-версия готова, попросите создать HTML или выполните:
 
 ```bash
 python3 plugins/research-dossier/scripts/render_html.py \
@@ -63,13 +73,13 @@ python3 plugins/research-dossier/scripts/render_html.py \
   research/<project-slug>/output/research.html
 ```
 
-The HTML report adds navigation, tables, evidence styling, source links, available reviews, and plain-text `Скопировать` buttons. It does not add facts or alter the Markdown.
+HTML-отчёт добавляет навигацию, таблицы, стили для уровней доказательности, ссылки на источники, доступные ревью и кнопки «Скопировать» с обычным текстом. Он не добавляет факты и не изменяет Markdown-файл.
 
-## Reference example
+## Эталонный пример
 
-See [examples/immunity-to-change/](examples/immunity-to-change/) for the complete reference case based on «Иммунитет к изменениям».
+Полный пример по теме «Иммунитет к изменениям» находится в папке [examples/immunity-to-change/](examples/immunity-to-change/).
 
-## Development and validation
+## Разработка и проверка
 
 ```bash
 python3 -m unittest discover -v
@@ -79,8 +89,8 @@ python3 /Users/aleksandrbubnov/.codex/skills/.system/plugin-creator/scripts/vali
   plugins/research-dossier
 ```
 
-The bundled validators may need a Python environment with `PyYAML` installed. The repository's own tests use only the Python standard library.
+Для встроенных валидаторов может понадобиться окружение Python с установленным `PyYAML`. Собственные тесты репозитория используют только стандартную библиотеку Python.
 
-## Contributing
+## Участие в разработке
 
-Read [CONTRIBUTING.md](CONTRIBUTING.md) before changing the workflow or output contract. Keep the core behavior platform-independent and update the changelog for user-visible changes.
+Перед изменением рабочего процесса или формата отчёта прочитайте [CONTRIBUTING.md](CONTRIBUTING.md). Сохраняйте независимость основного поведения от конкретной платформы и обновляйте журнал изменений при пользовательских изменениях.
