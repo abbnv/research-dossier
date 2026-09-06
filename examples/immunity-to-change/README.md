@@ -1,5 +1,7 @@
-# Reference research: «Иммунитет к изменениям»
+# Эталонный ресерч: «Иммунитет к изменениям»
 
-This is a reference dossier, not a finished script. It demonstrates the expected output contract: an approved question map, evidence next to claims, real conceptual neighbors, quotes, media references, short illustrations, and ten wild concepts.
+Это пример полного исследовательского досье, а не готовый сценарий. Он показывает новый контракт навыка: сначала краткие выводы, затем возможные сборки ролика, после этого — редакторские карточки исследований, кейсы, цитаты, референсы, метафоры, десять необычных концепций и ограничения.
 
-The dossier deliberately keeps the book's framework separate from adjacent empirical literatures. A useful connection is not automatically evidence that the theories are identical. Russian prose should translate technical terms and avoid unexplained English insertions.
+Тема исследуется широко: собственная модель Кегана и Лэхью сравнивается с исследованиями прокрастинации, эффекта статус-кво, неприятия потерь и планов «если X, то Y». Связи между этими идеями не объявляются тождеством без доказательств.
+
+Пример пройден автономно для русскоязычного бизнес- и self-development-канала в духе аудитории Михаила Дашкиева. Пользовательские ответы на стартовые вопросы смоделированы явно в [brief.md](brief.md).

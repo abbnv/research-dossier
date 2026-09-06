@@ -14,7 +14,7 @@ class HtmlRendererTests(unittest.TestCase):
         with tempfile.TemporaryDirectory() as directory:
             source = Path(directory) / "research.md"
             output = Path(directory) / "research.html"
-            markdown = """# Research\n\n## Key idea\n\n[ДОКАЗАНО] A useful thesis. [Source](https://example.com/source)\n\n| Concept | Use |\n| --- | --- |\n| Immunity | Show conflict |\n\n> A short quote\n\n## Reviews\n\nFactcheck pending.\n"""
+            markdown = """# Research\n\n## Key idea\n\nA useful thesis. [Source](https://example.com/source)\n\n| Concept | Use |\n| --- | --- |\n| Immunity | Show conflict |\n\n> A short quote\n\n## Reviews\n\nFactcheck pending.\n"""
             source.write_text(markdown)
             result = subprocess.run(
                 ["python3", str(SCRIPT), str(source), str(output)],
@@ -28,6 +28,7 @@ class HtmlRendererTests(unittest.TestCase):
             self.assertIn("table", html)
             self.assertIn("copy", html.lower())
             self.assertIn("Factcheck pending", html)
+            self.assertNotIn("evidence-proven", html)
             self.assertEqual(source.read_text(), markdown)
 
     def test_renderer_keeps_parentheses_inside_doi_urls(self):

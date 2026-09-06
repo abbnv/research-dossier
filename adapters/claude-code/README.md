@@ -10,7 +10,7 @@ Start with:
 Сделай ресерч по теме: Иммунитет к изменениям
 ```
 
-The skill asks for or loads the global audience profile, checks for unfinished projects, collects a brief, creates a question map, and waits for confirmation before deep research. Do not skip this confirmation when adapting the skill.
+The skill asks for or loads the global audience profile, checks for unfinished projects, collects a brief, creates a research-task map, and waits for confirmation before the broad research pass. It then collects editorial cards first and builds possible video structures in a second synthesis pass. Do not skip this confirmation when adapting the skill.
 
 Claude Code users can use the companion directories as separate skills: `research-factcheck`, `research-critic`, `research-editorial-review`, `research-concept-refiner`, and `research-html`.
 

@@ -39,6 +39,8 @@ class ProjectScaffoldingTests(unittest.TestCase):
                 "reviews/factcheck.md",
             ):
                 self.assertTrue((project / relative).is_file(), relative)
+            self.assertIn("Карта исследовательских задач", (project / "working" / "question-map.md").read_text())
+            self.assertIn("карточками", (project / "working" / "findings.md").read_text())
 
             original = project / "input" / "original-material.md"
             original.write_text("user material")
@@ -61,8 +63,8 @@ class ProjectScaffoldingTests(unittest.TestCase):
             )
             self.assertEqual(result.returncode, 0, result.stderr)
             self.assertIn("question-map", result.stdout)
+            self.assertIn("working/findings.md", result.stdout)
 
 
 if __name__ == "__main__":
     unittest.main()
-

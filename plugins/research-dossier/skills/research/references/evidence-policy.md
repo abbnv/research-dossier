@@ -1,16 +1,25 @@
-# Evidence policy
+# Политика работы с доказательствами
 
-Evaluate a source by relevance, methodology, transparency, independence, and fit for the specific claim. Do not use prestige or search ranking as a substitute for checking the source.
+Оценивайте источник по релевантности, методологии, прозрачности, независимости и соответствию конкретному тезису. Авторитетность или высокое место в поиске сами по себе не заменяют проверки.
 
-For research findings, record the population or sample, method, result, limits, and whether the finding generalizes to the video's audience. For data, record definition, date, geography, and denominator where available. For cases, distinguish documented facts from the lesson inferred from them.
+Для исследования фиксируйте население или выборку, метод, результат, ограничения и возможность переноса вывода на аудиторию видео. Для данных фиксируйте определение показателя, дату, географию и знаменатель. Для кейсов отделяйте документированные факты от вывода, который из них делает автор.
 
-Use these labels:
+В финальном `research.md` не используйте повторяющиеся статусные теги. Доказательность передаётся через:
 
-- `[ДОКАЗАНО]` — directly supported by a strong, relevant source.
-- `[ПОДТВЕРЖДАЕТСЯ]` — supported indirectly or by limited evidence.
-- `[ИНТЕРПРЕТАЦИЯ]` — a reasoned synthesis, not a direct finding.
-- `[НАТЯНУТО]` — possible but weak or speculative connection.
-- `[КРЕАТИВНАЯ ГИПОТЕЗА]` — original editorial proposal.
-- `[ВЫМЫСЕЛ / ИЛЛЮСТРАЦИЯ]` — invented short example or metaphor, never a real event.
+- точную формулировку («в метаанализе обнаружили» или «авторы предполагают»);
+- описание метода и контекста;
+- ссылку рядом с фактическим тезисом;
+- отдельное объяснение того, чего источник не доказывает;
+- честное указание на недоступный источник или пробел.
 
-Put the source link next to every factual claim and list all sources at the end. If sources conflict, select the most convincing position and note the meaningful alternative. If a source cannot be opened or checked, say so. Do not invent citations, quotes, studies, people, dates, or cases.
+В `source-ledger.md` сохраняйте технические поля для внутренних проверок: источник, тезис, тип материала, метод, релевантность, качество, ограничения, противоречия, статус проверки и следующий запрос. Эти поля не нужно дублировать в читательском тексте.
+
+## Цитаты
+
+Прямой цитатой можно называть только проверенную формулировку. Для каждой цитаты нужны оригинал, естественный русский перевод, автор, источник, контекст и точное место: страница, глава, таймкод или URL. Если формулировка не проверена, используйте «пересказ идеи» и не ставьте кавычки.
+
+## Противоречия
+
+Если источники расходятся, сравните определения, выборки, методы, даты, контекст и возможные стимулы авторов. Объясните, какая интерпретация лучше поддерживается, и сохраните существенную альтернативу.
+
+Не выдумывайте ссылки, цитаты, исследования, людей, даты и кейсы. Метафоры и короткие иллюстрации допустимы только в творческом слое и должны быть явно обозначены как авторские.

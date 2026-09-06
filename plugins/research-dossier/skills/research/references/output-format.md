@@ -1,49 +1,64 @@
-# Research dossier output format
+# Формат финального исследовательского досье
 
-The report is a practical editorial dossier, not an academic essay. A writer should be able to scan it quickly and copy useful material without reading every paragraph.
+Отчёт — это практическое редакторское досье, а не академическое эссе. Его можно быстро просмотреть, открыть отдельную карточку и сразу понять, как использовать материал в сценарии.
 
-## User-facing behavior
+## Поведение в чате
 
-The assistant's chat messages should contain only useful collaboration with the user. Keep skill loading, file-path resolution, tool calls, source-search mechanics, and internal checkpoints out of the conversation. Never write phrases such as «прочитал навык», «использую навык», «путь навыка оказался другим» or similar implementation narration.
+В сообщениях пользователю должны оставаться только полезные действия и вопросы. Нельзя проговаривать загрузку навыка, разрешение путей, вызовы инструментов, внутренние этапы или служебные ошибки окружения.
 
-## Recommended order
+## Порядок разделов
 
-1. Research passport.
-2. Opportunity map: 3–7 strongest directions, conflicts, surprises, and open questions.
-3. Key concepts and adjacent frameworks.
-4. Evidence base.
-5. Real cases and stories.
-6. Quotations.
-7. Books, videos, films, lectures, and other references.
-8. Metaphors and short illustrative examples.
-9. Ten wild concepts.
-10. Gaps, contradictions, risks, and claims needing further verification.
-11. Complete sources.
+1. Паспорт исследования.
+2. Коротко: 7–10 главных выводов буллетами.
+3. Расширение выводов: доказательства, смысл, ограничения и сценарное применение.
+4. Как из материала можно собрать ролик: рекомендуемая структура и 2–4 альтернативы.
+5. Карта исследованных вопросов и оставшихся пробелов.
+6. Главные концепции и соседние объяснения.
+7. Исследования и доказательная база.
+8. Реальные кейсы и истории.
+9. Банк цитат.
+10. Книги, видео, фильмы, лекции и другие референсы.
+11. Метафоры и короткие иллюстрации.
+12. Десять необычных концепций.
+13. Противоречия, риски и что нужно проверить дополнительно.
+14. Полный список источников.
 
-## Item format
+## Карточка важного материала
 
-Use one compact block per important item:
+Каждый важный источник раскрывается через цепочку:
 
-| Field | Content |
-| --- | --- |
-| Thesis | One clear thought in 1–2 sentences |
-| Why interesting | Surprise, tension, paradox, or human stake |
-| Scenario use | Hook, scene, conflict, visual, transition, reveal, or ending |
-| Material type | Fact, finding, theory, case, quote, interpretation, idea, metaphor, illustration |
-| Status | One exact evidence/creative label |
-| Source | Link immediately beside the factual claim |
-| Detail | Context, limits, and useful nuance |
+**факт → смысл → человеческое объяснение → сценарное применение → ограничение.**
 
-Prefer bullets and tables to long prose. Keep the explanation after the thesis. For comparisons, use columns for claim, what it explains, difference, limitation, and scenario potential. For cases, include who/where/when, conflict, what happened, why it matters, what can be shown, and source.
+Минимальная карточка содержит:
 
-## Language
+- вывод в 2–3 предложениях простым языком;
+- что изучали и как;
+- что обнаружили;
+- что это значит;
+- почему это важно для темы;
+- 2–3 предложения о применении в сценарии;
+- что можно показать;
+- ограничения и альтернативные объяснения;
+- ссылку рядом с фактическими утверждениями.
 
-The report is written in natural Russian. Translate names of concepts, study variables, institutions, and examples where a Russian equivalent exists. On first use, optionally retain the original in parentheses: `предвзятость статус-кво (status quo bias)`. Do not mix English nouns into Russian sentences without translation or explanation. Source titles and direct quotations may remain in the original language, but add a Russian title/translation when useful.
+Не оставляйте формулировки «авторы описывают» или «исследование показало» без раскрытия результата и смысла.
 
-## Quotes
+## Язык и ссылки
 
-Include the Russian translation first, then the exact original wording, author, work, context, scenario use, status, and page/chapter/timestamp/URL. Label both `Перевод:` and `Оригинал:`. Only verified wording is a direct quote. Otherwise write a paraphrase and say so. Keep quotes short.
+Пишите естественно по-русски. Технический термин переводите при первом употреблении, а оригинал оставляйте в скобках только когда он помогает найти источник или понять концепцию. Ставьте ссылку рядом с фактическим тезисом и добавляйте полный список источников в конце.
 
-## Ten wild concepts
+Не используйте в основном отчёте повторяющиеся статусные обозначения. Разницу между фактом, выводом и гипотезой показывайте формулировками, источниками, структурой разделов и ограничениями.
 
-Create exactly ten entries directly inside the final `research.md`, not only in a separate working file. Each has a name, core idea, convention it breaks, image or mechanism, factual anchor if any, possible video application, risk of overreach, and priority. Every entry is `[КРЕАТИВНАЯ ГИПОТЕЗА]`. A separate `creative-lab.md` may remain as a checkpoint, but the final dossier must contain the full ideas.
+## Цитаты и референсы
+
+Для цитат порядок такой: `Перевод`, `Оригинал`, автор и источник, контекст, почему формулировка сильна, где использовать в сценарии, точный локатор. Непроверенные формулировки оформляйте как пересказ идеи.
+
+Книги, фильмы, видео и лекции описывайте не списком, а через идею, полезный фрагмент, добавляемый смысл и сценарное применение.
+
+## Сценарный синтез
+
+Рекомендуемая структура ролика идёт раньше подробной доказательной базы, чтобы сценарист сразу увидел возможную сборку. Она не считается окончательным планом: рядом нужны 2–4 альтернативы, их сильные материалы, слабые места, риски и пробелы.
+
+## Творческий слой
+
+В разделах с метафорами и десятью необычными концепциями можно быть смелым, но нужно указывать фактическую опору, если она есть, и риск того, что образ примут за факт. Полные вымышленные истории запрещены; допустимы метафоры и короткие иллюстрации.

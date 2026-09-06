@@ -1,60 +1,73 @@
 ---
 name: research
-description: Turn a topic, idea, transcript, or source material into a sourced and creative research dossier for a future video. Use when the user wants research, not a finished script.
+description: Turn a topic, idea, transcript, or source material into a sourced, creative, scenario-ready research dossier for a future video. Use when the user wants research fuel, not a finished script.
 ---
 
 # Research
 
-Create a local, resumable research dossier. The dossier is research fuel for a writer, not a screenplay. It should maximize interesting, visual, deep directions while keeping evidence, interpretation, speculation, and fiction visibly separate.
+Create a local, resumable research dossier that gives a writer maximum useful material for a future video: findings, studies, cases, quotations, books, films, metaphors, visual possibilities, and bold concepts. The dossier is not a finished script. It is a clear bridge from evidence to possible scenario structures.
 
 ## User-facing behavior
 
-Keep internal routing and instruction loading invisible. Do not announce that you are using, reading, or locating a skill; do not mention the skill file path, environment-specific paths, cache paths, or a path mismatch. Do not narrate tool calls or internal progress. Start with a useful acknowledgement, a concise question if user input is genuinely missing, or the next visible research action.
+Keep internal routing, instruction loading, path resolution, cache paths, tool calls, and progress narration invisible. Do not announce that you are reading or locating a skill, do not mention an environment-specific skill path, and do not expose implementation details. Start with a useful acknowledgement, a concise question when user input is genuinely missing, or the next visible research action.
+
+Keep internal routing and instruction loading invisible.
 
 ## Start and resume
 
-1. If this is the first run, offer the editable default audience profile for a Russian-language business/self-development YouTube channel modeled on Mikhail Dashkiev's audience. Save one global profile locally; do not treat it as universal.
+1. On the first run, offer the editable default audience profile for a Russian-language business and self-development YouTube channel inspired by Mikhail Dashkiev's audience. Save one global local profile; do not present it as universal.
 2. Inspect `./research/` for incomplete projects. Ask whether to continue an existing project or start a new one.
-3. For a new project, collect the topic or input material, objective, intended video format, and constraints. Use the scaffolder in `scripts/new_research_project.py` when available.
-4. Save the original input and write `working/brief.md`.
-5. Build `working/question-map.md` (the question map), showing the research branches and why they matter.
-6. Stop and ask the user to confirm or edit the map. Do not begin deep research until confirmation.
+3. For a new project, accept a topic, idea, URL, notes, transcript, or call recording. First infer what is already clear. Ask only high-value questions whose answers could materially change the map; each question should offer five options generated for this topic. Do not make the user complete a long generic intake form.
+4. An editorial line is optional at intake. If the user has one, use it as a priority; otherwise begin with open research and discover possible lines from the material.
+5. Create a project folder with `scripts/new_research_project.py`, preserve the original input, and complete `working/brief.md`.
+6. Read [research-map.md](references/research-map.md) and build `working/question-map.md`. The map is a set of research tasks, desired evidence, human material, practical implications, criticism, quotations, references, and visual/creative opportunities. It is not a premature script outline.
+7. Stop and ask the user to confirm or edit the map. Do not start the deep research pass before confirmation. If the user explicitly asks you to proceed without waiting, record that choice and continue.
 
 Read [checkpoints.md](references/checkpoints.md) before resuming or changing project state.
 
-## Research pass
+## Pass 1: open research and material collection
 
-Use web search plus model knowledge. Search in any relevant language; write the report in Russian and translate or explain non-Russian sources. Do not leave unexplained English phrases in Russian prose: translate technical terms on first use and keep the original only in parentheses, source titles, or verified quotations. Read [evidence-policy.md](references/evidence-policy.md) before collecting claims or quotations.
+Read [evidence-policy.md](references/evidence-policy.md) and [research-card.md](references/research-card.md) before collecting claims. Search the web in any relevant language and use model knowledge for orientation, discovery, and synthesis. Do not present unsupported memory as verified evidence.
 
-Research until the topic has adequate coverage, not until a fixed number of links is reached. Look for:
+Cover every approved branch where relevant:
 
-- related theories and concepts;
-- studies, data, and methodological limits;
-- real cases and human stories;
-- short, verified quotations from books or research, always with a Russian translation and the original wording retained;
-- books, videos, lectures, films, interviews, and essays;
-- metaphors and short invented illustrations;
-- ten (10) unusual concepts that are not limited to opening hooks.
+- how the phenomenon works;
+- studies, data, methods, and limitations;
+- adjacent concepts and competing explanations;
+- real people, cases, and human conflicts;
+- practical implications and possible experiments;
+- criticism, counterarguments, and what the model cannot explain;
+- short verified quotations from research and books;
+- books, films, videos, lectures, interviews, and essays;
+- metaphors, visual devices, and short invented illustrations;
+- unusual conceptual directions.
 
-Every useful item must explain why it may help the scenario: hook, scene, conflict, visual, transition, reveal, or ending. Keep creative proposals in a separate layer.
+Turn every important source into an editorial card in `working/findings.md`. The card must answer: what was studied, what was found, what it means in ordinary language, what it does not prove, why it belongs in this dossier, and how it could serve a video. Save provenance in `working/source-ledger.md`, creative material in `working/creative-lab.md`, and unresolved issues in `working/open-questions.md`.
 
-If web search is unavailable, ask the user to provide sources or enable external search before starting a full research pass. Do not silently substitute unsupported model memory for evidence.
+Do not use repetitive status tags in the reader-facing report. Не используйте повторяющиеся статусные теги: разницу между фактом, выводом и гипотезой показывайте формулировками, ссылками, методом и ограничениями. Technical source evaluation belongs only in the source ledger and later reviews.
 
-## Output
+Research until each branch has useful coverage and new searches stop adding material, not until a fixed number of links or minutes is reached. Record remaining gaps instead of filling them with guesses. If web search is unavailable, say so and ask for sources or permission to continue with an explicitly limited evidence base.
 
-Read [output-format.md](references/output-format.md) before assembling `output/research.md`. Use short theses, bullets, comparisons, and tables. Put source links immediately beside factual claims and include a complete source list at the end. Include the complete ten wild concepts block directly in `output/research.md`, even when some ideas are weak; rank them and describe the risk.
+Save a checkpoint after every major branch and update `PROJECT.md` with `status`, `last_completed`, and `current_task`.
 
-Use these status labels exactly:
+## Pass 2: editorial synthesis
 
-- `[ДОКАЗАНО]`
-- `[ПОДТВЕРЖДАЕТСЯ]`
-- `[ИНТЕРПРЕТАЦИЯ]`
-- `[НАТЯНУТО]`
-- `[КРЕАТИВНАЯ ГИПОТЕЗА]`
-- `[ВЫМЫСЕЛ / ИЛЛЮСТРАЦИЯ]`
+When the first pass has adequate coverage, read [scenario-synthesis.md](references/scenario-synthesis.md) and [output-format.md](references/output-format.md). Then:
 
-When sources conflict, choose the most convincing position using relevance, methodology, transparency, independence, and fit for the claim. State meaningful alternatives. Never invent a study, quotation, case, or event. Full invented stories are not allowed; only metaphors and short illustrative examples may be invented and must be labeled.
+1. Write 7–10 short findings for fast reading, followed by expanded explanations.
+2. Propose one recommended structure for the future video and 2–4 alternatives. Map facts, cases, quotations, visuals, and gaps to each structure.
+3. Build a list of possible lines of presentation. These are outputs of the research, not a gate that restricted the search.
+4. Curate the strongest concepts, quotes, references, metaphors, and ten unusual ideas.
+5. Make contradictions, unsupported links, and missing evidence visible.
 
-Save checkpoints after major branches. Update `PROJECT.md` with status and last completed stage. Finish by telling the user where `output/research.md` is and offer `research-html`, `research-factcheck`, `research-critic`, or `research-editorial-review`.
+The synthesis must explain how the material can become a scenario without pretending to be the final script.
 
-The reference example is the topic «Иммунитет к изменениям»; use the example to understand the expected level of breadth, evidence, and creative ambition. When working on the example, explain what the research adds to «Иммунитету к изменениям» as a video topic.
+## Output and follow-up
+
+Read [output-format.md](references/output-format.md) before assembling `output/research.md`. Write in natural Russian. Translate technical terms on first use and retain the original in parentheses only when useful. Put source links next to factual claims and include a complete source list at the end.
+
+The final report contains no repetitive evidence tags. Keep creative material in dedicated sections so it is visibly different from sourced findings. Direct quotations require a checked original, Russian translation, author, context, and locator; otherwise use a clearly marked paraphrase.
+
+Finish by telling the user where `output/research.md` is and offer `research-html`, `research-factcheck`, `research-critic`, `research-editorial-review`, and `research-concept-refiner`. Run HTML only on request. Optional reviews read saved artifacts and write new files without overwriting the dossier.
+
+The reference example is «Иммунитет к изменениям». Use it to understand the expected breadth, evidence discipline, and creative ambition. When working on that topic, explain what each useful finding adds to a possible video.

@@ -19,21 +19,33 @@ class ReferenceExampleTests(unittest.TestCase):
         ):
             self.assertTrue((EXAMPLE / relative).is_file(), relative)
         research = (EXAMPLE / "research.md").read_text()
-        self.assertIn("данные о выборе медицинских и пенсионных планов", research)
+        self.assertIn("выбор медицинских планов сотрудников Harvard", research)
         self.assertNotIn("health plans и retirement programs", research)
         for phrase in (
-            "[ДОКАЗАНО]",
-            "[ИНТЕРПРЕТАЦИЯ]",
-            "[КРЕАТИВНАЯ ГИПОТЕЗА]",
-            "Цитаты",
-            "Книги",
-            "Кейсы",
-            "Перевод:",
-            "Оригинал:",
+            "Коротко: что мы узнали",
+            "Рекомендуемая сборка",
+            "Карточка 1.",
+            "Сравнение концепций",
+            "Кейсы и истории",
+            "Банк цитат",
+            "Книги, видео, фильмы",
+            "Метафоры и короткие иллюстрации",
+            "Десять безумных концепций",
+            "Что ещё нужно проверить",
+            "Перевод:**",
+            "Оригинал:**",
         ):
             self.assertIn(phrase, research)
-        concepts = re.findall(r"^###\s+\d+\.", research, re.MULTILINE)
-        self.assertEqual(len(concepts), 10)
+        for old_tag in (
+            "[ДОКАЗАНО]",
+            "[ПОДТВЕРЖДАЕТСЯ]",
+            "[ИНТЕРПРЕТАЦИЯ]",
+            "[КРЕАТИВНАЯ ГИПОТЕЗА]",
+            "[НАТЯНУТО]",
+        ):
+            self.assertNotIn(old_tag, research)
+        concepts_block = research.split("## 11. Десять безумных концепций", 1)[1].split("## 12.", 1)[0]
+        self.assertEqual(len(re.findall(r"^\d+\. ", concepts_block, re.MULTILINE)), 10)
 
 
 if __name__ == "__main__":

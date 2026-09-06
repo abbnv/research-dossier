@@ -17,7 +17,14 @@ def read_state(project: Path) -> dict[str, str | list[str]]:
         match = re.match(r"^-\s+([\w-]+):\s*(.*)$", line)
         if match:
             values[match.group(1)] = match.group(2).strip().strip("`")
-    required = ("working/brief.md", "working/question-map.md", "working/source-ledger.md", "output/research.md")
+    required = (
+        "working/brief.md",
+        "working/question-map.md",
+        "working/source-ledger.md",
+        "working/findings.md",
+        "working/creative-lab.md",
+        "output/research.md",
+    )
     values["missing_artifacts"] = [item for item in required if not (project / item).is_file()]
     return values
 

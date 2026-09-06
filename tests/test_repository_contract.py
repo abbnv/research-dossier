@@ -26,21 +26,30 @@ class RepositoryContractTests(unittest.TestCase):
         self.assertTrue(skill_path.is_file())
         text = skill_path.read_text()
         for phrase in (
-            "question map",
+            "question-map.md",
             "confirmation",
-            "[ДОКАЗАНО]",
-            "[КРЕАТИВНАЯ ГИПОТЕЗА]",
             "10",
             "source",
             "checkpoint",
-            "Иммунитету к изменениям",
-            "Russian translation",
-            "original wording",
-            "Do not leave unexplained English phrases",
+            "Иммунитет к изменениям",
+            "research-card.md",
+            "scenario-synthesis.md",
+            "five options generated for this topic",
+            "editorial card",
+            "2–4 alternatives",
+            "Не используйте повторяющиеся",
             "Keep internal routing and instruction loading invisible",
         ):
             self.assertIn(phrase, text)
         self.assertNotIn("[TODO", text)
+
+    def test_research_references_match_reader_facing_contract(self):
+        output_format = (PLUGIN / "skills" / "research" / "references" / "output-format.md").read_text()
+        evidence_policy = (PLUGIN / "skills" / "research" / "references" / "evidence-policy.md").read_text()
+        for phrase in ("Коротко: 7–10", "Как из материала можно собрать ролик", "Карточка важного материала"):
+            self.assertIn(phrase, output_format)
+        self.assertIn("не используйте повторяющиеся статусные теги", evidence_policy)
+        self.assertNotIn("[ДОКАЗАНО]", output_format)
 
     def test_companion_skills_are_independently_routable(self):
         expected = {
