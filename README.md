@@ -17,7 +17,14 @@ The default audience profile is a Russian-speaking business and self-development
 
 ## Codex / ChatGPT installation
 
-Install the directory `plugins/research-dossier` using the Codex plugin installation flow or local plugin UI. The plugin manifest is at `plugins/research-dossier/.codex-plugin/plugin.json`, and the bundled skills are under `plugins/research-dossier/skills/`.
+From GitHub, run:
+
+```bash
+codex plugin marketplace add abbnv/research-dossier --ref main
+codex plugin add research-dossier@research-skill
+```
+
+For a local checkout, run `codex plugin marketplace add .` from the repository root instead. The plugin manifest is at `plugins/research-dossier/.codex-plugin/plugin.json`, and the bundled skills are under `plugins/research-dossier/skills/`.
 
 After installation, start a new Codex task and ask: `Сделай ресерч по теме: ...`.
 
