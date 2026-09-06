@@ -1,0 +1,20 @@
+{
+  "name": "research-skill",
+  "interface": {
+    "displayName": "Research Skill"
+  },
+  "plugins": [
+    {
+      "name": "research-dossier",
+      "source": {
+        "source": "local",
+        "path": "./plugins/research-dossier"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Productivity"
+    }
+  ]
+}

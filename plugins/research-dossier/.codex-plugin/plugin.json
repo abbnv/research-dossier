@@ -1,0 +1,24 @@
+{
+  "name": "research-dossier",
+  "version": "0.1.0",
+  "description": "Turn topics and source material into sourced, creative, resumable research dossiers.",
+  "author": {
+    "name": "Research Dossier contributors"
+  },
+  "license": "MIT",
+  "keywords": ["research", "youtube", "evidence", "creative", "writing"],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Research Dossier",
+    "shortDescription": "Build sourced, creative research dossiers.",
+    "longDescription": "Research Dossier turns a topic, idea, or transcript into a local, resumable dossier with evidence, stories, quotes, media references, and ten bold concepts.",
+    "developerName": "Research Dossier contributors",
+    "category": "Productivity",
+    "capabilities": ["Interactive", "Write"],
+    "defaultPrompt": [
+      "Сделай ресерч по этой теме: ",
+      "Продолжи незавершённый ресерч",
+      "Собери HTML-версию готового ресерча"
+    ]
+  }
+}
