@@ -37,6 +37,7 @@ class RepositoryContractTests(unittest.TestCase):
             "Russian translation",
             "original wording",
             "Do not leave unexplained English phrases",
+            "Keep internal routing and instruction loading invisible",
         ):
             self.assertIn(phrase, text)
         self.assertNotIn("[TODO", text)

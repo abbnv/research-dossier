@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.1.1
+
+- Keep skill loading, path resolution, and tool activity out of user-facing research conversations.
+
 ## 0.1.0
 
 - Initial Codex/ChatGPT plugin scaffold.
